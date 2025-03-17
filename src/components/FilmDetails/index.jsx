@@ -121,6 +121,15 @@ const FilmDetail = () => {
               <p>Director: {movie.Director}</p>
               <p>Writer: {movie.Writer}</p>
               <p>Stars: {movie.Actors}</p>
+              <div className='flex'>
+                <h3>IMDB Rating:</h3>
+                <Rating
+                  value={movie.imdbRating / 2} 
+                  readOnly
+                  precision={0.1}
+                />
+                <span>{movie.imdbRating}/10</span>
+              </div>
             </div>
           </div>
           <div className="flex gap-4 py-4">
