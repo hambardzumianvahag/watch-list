@@ -25,7 +25,6 @@ export default function Main({ isDarkMode }) {
     } else {
       setWatchList([]);
       setWatchHeader('Your Watch List is empty!');
-      setRecommendedHeader('Recommended Movies!');
     }
 
     if (storedViewedList && storedViewedList.length > 0) {
@@ -34,7 +33,6 @@ export default function Main({ isDarkMode }) {
     } else {
       setViewedList([]);
       setViewedHeader('Your Viewed List is empty!');
-      setRecommendedHeader('Recommended Movies!');
     }
   }, []);
 
