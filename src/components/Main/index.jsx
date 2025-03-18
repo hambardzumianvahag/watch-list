@@ -6,9 +6,8 @@ export default function Main({ isDarkMode }) {
   const [value, setValue] = useState(0);
   const [watchList, setWatchList] = useState([]);
   const [viewedList, setViewedList] = useState([]);
-  const [watchHeader, setWatchHeader] = useState('Your Watch List is empty!');
-  const [viewedHeader, setViewedHeader] = useState('Your Viewed List is empty!');
-  const [recommendedHeader, setRecommendedHeader] = useState('Recommended Movies!');
+  const [watchHeader, setWatchHeader] = useState('');
+  const [viewedHeader, setViewedHeader] = useState('');
   const [watchListDetails, setWatchListDetails] = useState([]);
   const [viewedListDetails, setViewedListDetails] = useState([]);
 
@@ -74,7 +73,6 @@ export default function Main({ isDarkMode }) {
         watchHeader={watchHeader} 
         viewedList={viewedListDetails} 
         viewedHeader={viewedHeader}
-        recommendedHeader={recommendedHeader}
         value={value} 
       />
     </>

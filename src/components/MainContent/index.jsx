@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -7,31 +8,36 @@ export default function MainContent({
                                         watchHeader,
                                         viewedList,
                                         viewedHeader,
-                                        recommendedHeader
                                     }) {
     const navigate = useNavigate();
     const [defaultMovies, setDefaultMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [recommendedHeader, setRecommendedHeader] = useState('');
 
     function getFilmData(id) {
         navigate("/" + id);
     }
 
     useEffect(() => {
-        if (watchList.length === 0 && viewedList.length === 0) {
+        const timeoutId = setTimeout(() => {
+          if (watchList.length === 0 && viewedList.length === 0 && defaultMovies.length === 0) {
+            console.log('Fetching default Batman movies');
             fetch('https://www.omdbapi.com/?s=Batman&apikey=186be766')
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.Search) {
-                        setDefaultMovies(data.Search);
-                    }
-                })
-                .catch((error) => console.error("Error fetching default movies:", error))
-                .finally(() => setLoading(false));
-        } else {
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.Search) {
+                  setDefaultMovies(data.Search);
+                  setRecommendedHeader('Recommended Movies!')
+                }
+              })
+              .catch((error) => console.error("Error fetching default movies:", error))
+              .finally(() => setLoading(false));
+          } else {
             setLoading(false);
-        }
-    }, [watchList, viewedList]);
+          }
+        }, 500);    
+        return () => clearTimeout(timeoutId);
+      }, [watchList, viewedList, defaultMovies.length]);
 
     const isWatchList = value === 0;
     const headerTitle = isWatchList ? watchHeader : viewedHeader;
@@ -46,9 +52,11 @@ export default function MainContent({
                 {films.length ? null : recommendedHeader}
             </h2>
             {loading ? (
-                <p className="mt-4 text-gray-600 dark:text-gray-300">Loading movies...</p>
-            ) : films.length === 0 && defaultMovies.length === 0 ? (
-                <p className="mt-4 text-gray-600 dark:text-gray-300">No movies found.</p>
+                        <div className="flex items-center justify-center py-4">
+                        <CircularProgress />
+                        </div>
+                        ) : films.length === 0 && defaultMovies.length === 0 ? (
+               null
             ) : (
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {(films.length > 0 ? films : defaultMovies).map((film, index) => (

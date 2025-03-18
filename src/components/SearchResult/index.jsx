@@ -46,7 +46,7 @@ export default function SearchResult({ searchVal, setSearchVal }) {
   }
 
   return (
-      <div className="max-h-[400px] overflow-y-auto bg-white dark:bg-gray-700 shadow-md rounded-lg p-2">
+      <div className="max-h-[400px] overflow-y-auto bg-gray-100 dark:bg-gray-700 shadow-md rounded-lg p-2">
         {loading && (
             <div className="flex items-center justify-center py-4">
               <CircularProgress />

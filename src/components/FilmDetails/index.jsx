@@ -146,7 +146,6 @@ const FilmDetails = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex gap-4 mt-8">
                 <button
                     className={`px-6 py-3 rounded-xl text-white font-semibold
@@ -169,7 +168,6 @@ const FilmDetails = () => {
                 </button>
               </div>
 
-              {/* User Rating */}
               {inViewedList && (
                   <div className="mt-8">
                     <p className="mb-2 text-gray-800 dark:text-gray-100">Rate this Movie:</p>
