@@ -16,7 +16,7 @@ export default function Header({ toggleTheme, isDarkMode }) {
       <header className="relative md:p-4 p-2 flex flex-col items-center">
         <div className="w-full flex justify-between items-center">
           <div className="cursor-pointer" onClick={() => navigate('/')}>
-            <img src={logo} alt="Logo" width="75" />
+            <img src={logo} alt="Logo" width="75" className='md:w-[75px] w-[50px]' />
           </div>
           <button onClick={toggleTheme} className="p-2">
             {isDarkMode ? (
@@ -26,7 +26,7 @@ export default function Header({ toggleTheme, isDarkMode }) {
             )}
           </button>
         </div>
-        <div className="relative mt-[-57px] md:w-full w-1/2 max-w-md">
+        <div className="relative md:mt-[-57px] mt-[-43px] md:w-full w-1/2 max-w-md">
           <input
               type="text"
               placeholder="Search..."

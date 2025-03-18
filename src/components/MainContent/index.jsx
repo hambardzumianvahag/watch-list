@@ -47,7 +47,7 @@ export default function MainContent({
             <h2 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-gray-100">
                 {headerTitle}
             </h2>
-            <h2 className="md:text-4xl text-2xl font-bold text-gray-800 dark:text-gray-100">
+            <h2 className="md:text-4xl text-2xl font-bold mt-10 text-gray-800 dark:text-gray-100">
                 {films.length ? null : recommendedHeader}
             </h2>
             {loading ? (
