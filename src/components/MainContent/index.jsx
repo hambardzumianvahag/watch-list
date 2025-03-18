@@ -13,6 +13,8 @@ export default function MainContent({
     const [defaultMovies, setDefaultMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [recommendedHeader, setRecommendedHeader] = useState('');
+    
+    const apiKey = import.meta.env.VITE_IMDB_API_KEY
 
     function getFilmData(id) {
         navigate("/" + id);
@@ -21,7 +23,7 @@ export default function MainContent({
     useEffect(() => {
         const timeoutId = setTimeout(() => {
           if (watchList.length === 0 || viewedList.length === 0   && defaultMovies.length === 0) {
-            fetch('https://www.omdbapi.com/?s=Batman&apikey=186be766')
+            fetch(`https://www.omdbapi.com/?s=Batman&apikey=${apiKey}`)
               .then((response) => response.json())
               .then((data) => {
                 if (data.Search) {

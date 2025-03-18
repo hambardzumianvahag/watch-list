@@ -11,6 +11,8 @@ export default function Main({ isDarkMode }) {
   const [watchListDetails, setWatchListDetails] = useState([]);
   const [viewedListDetails, setViewedListDetails] = useState([]);
 
+  const apiKey = import.meta.env.VITE_IMDB_API_KEY;
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -41,7 +43,7 @@ export default function Main({ isDarkMode }) {
     const fetchFilmDetails = async (ids) => {
       const fetchedData = [];
       for (const id of ids) {
-        const response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=186be766`);
+        const response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`);
         const data = await response.json();
         if (data.Response === "True") {
           fetchedData.push(data);

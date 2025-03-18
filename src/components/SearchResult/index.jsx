@@ -9,12 +9,14 @@ export default function SearchResult({ searchVal, setSearchVal }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const apiKey = import.meta.env.VITE_IMDB_API_KEY
+
   const debouncedSearchVal = useDebounce(searchVal, 1000);
 
   function getData() {
     setLoading(true);
     setError(null);
-    fetch(`https://www.omdbapi.com/?s=${debouncedSearchVal}&apikey=186be766`)
+    fetch(`https://www.omdbapi.com/?s=${debouncedSearchVal}&apikey=${apiKey}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Failed to fetch data');

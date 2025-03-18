@@ -11,6 +11,8 @@ const FilmDetails = () => {
   const [inViewedList, setInViewedList] = useState(false);
   const [rating, setRating] = useState(null);
 
+  const apiKey = import.meta.env.VITE_IMDB_API_KEY
+
   useEffect(() => {
     const savedRating = localStorage.getItem(`rating-${imdbID}`);
     if (savedRating) {
@@ -29,7 +31,7 @@ const FilmDetails = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=186be766`);
+        const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`);
         const data = await response.json();
 
         if (data.Response === 'True') {
