@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-import { Route, Router, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import Layout from './components/Layout';
 import FilmDetails from './components/FilmDetails';
 import Main from './components/Main';
@@ -36,4 +36,3 @@ export default function App() {
   </Routes>
   )
 }
-

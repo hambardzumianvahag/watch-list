@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router'
 import Header from '../Header'
-import Footer from '../Footer'
 
 export default function Layout({isDarkMode, toggleTheme}) {
 
@@ -10,8 +9,6 @@ export default function Layout({isDarkMode, toggleTheme}) {
       <div>
         <Outlet />
       </div>  
-      <Footer />  
     </>
   )
 }
-

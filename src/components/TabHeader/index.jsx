@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Box, Tabs, Tab } from '@mui/material';
 
 export default function TabHeader({ isDarkMode, value, handleChange }) {
-
-
-
+  
   return (
     <Box sx={{ width: '100%'}}>
       <Tabs
