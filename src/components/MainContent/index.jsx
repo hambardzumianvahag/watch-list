@@ -20,8 +20,7 @@ export default function MainContent({
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-          if (watchList.length === 0 && viewedList.length === 0 && defaultMovies.length === 0) {
-            console.log('Fetching default Batman movies');
+          if (watchList.length === 0 || viewedList.length === 0   && defaultMovies.length === 0) {
             fetch('https://www.omdbapi.com/?s=Batman&apikey=186be766')
               .then((response) => response.json())
               .then((data) => {
