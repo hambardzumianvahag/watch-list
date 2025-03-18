@@ -1,4 +1,4 @@
-import { Rating } from '@mui/material';
+import { CircularProgress, Rating } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -84,7 +84,7 @@ const FilmDetails = () => {
   };
 
   if (loading) {
-    return <p className="text-center mt-8">Loading...</p>;
+    return <div className="flex items-center justify-center py-4"><CircularProgress /></div>
   }
 
   if (error) {
